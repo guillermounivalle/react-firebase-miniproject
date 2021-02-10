@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open Paola Hermosa preciosa up App.js to start working on your app!</Text>
-      <Button title="Button"/>
+      <Text>React-Firebase-Miniproject!</Text>
+      <Button title="Button" 
+      onPress={() => Alert.alert('Hola, soy un botón presionado')}
+      color = "purple"/>
       <StatusBar style="auto" />
     </View>
   );
