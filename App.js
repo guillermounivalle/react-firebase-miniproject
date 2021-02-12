@@ -2,16 +2,35 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>React-Firebase-Miniproject!</Text>
-      <Button title="Button" 
-      onPress={() => Alert.alert('Hola, soy un botón presionado')}
-      color = "purple"/>
-      <StatusBar style="auto" />
-    </View>
-  );
+// Navegación entre componentes 
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+//Importando componentes
+import HomeScreen from './components/HomeScreen/HomeScreen';
+import Maps from './components/Maps/maps';
+
+//Creando la variable Stack
+const Stack = createStackNavigator();
+
+class App extends React.Component{
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+		<Stack.Screen
+            name="HomeScreen"
+            component={HomeScreen}
+          />
+		  <Stack.Screen
+            name="Maps"
+            component={Maps}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -22,3 +41,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+export default App;
