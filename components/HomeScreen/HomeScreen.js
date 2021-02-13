@@ -9,23 +9,23 @@ class HomeScreen extends React.Component {
     render(){
         return (
             <View style={styles.container}>
-            <Text>React-Firebase-Miniproject!</Text>
-            <Button title="Button" 
-                onPress={() => this.props.navigation.navigate('Maps')}
-                color = "purple"/>
-            <StatusBar style="auto" />
+                <Text>React-Firebase-Miniproject!</Text>
+                <Button title="Button" 
+                    onPress={() => this.props.navigation.navigate('Login')}
+                    color = "purple"/>
+                <StatusBar style="auto" />
             </View>
             );
         }
     }
     
-    const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            backgroundColor: '#fff',
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-    });
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
 
-    export default HomeScreen;
+export default HomeScreen;
