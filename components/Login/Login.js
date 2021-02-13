@@ -20,6 +20,7 @@ class Login extends React.Component {
             password: '' 
         };
     }
+    
 
     //Método login
     login = () => {
