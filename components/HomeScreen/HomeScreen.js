@@ -10,6 +10,8 @@ class HomeScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>React-Firebase-Miniproject!</Text>
+                <Text>  </Text>
+                <Text>Si ya te encuentras registrado haz click en Login</Text>
                 <Button title="Button" 
                     onPress={() => this.props.navigation.navigate('Login')}
                     color = "purple"/>

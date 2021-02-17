@@ -14,9 +14,41 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            //Declaramos lo que vamos a usar. Luego lo editamos para que los estados queden en un reducer
             isReady: false,
+            email: '',
+            password: '' 
         };
     }
+    
+
+    //Método login
+    login = () => {
+        console.log('Es presionado')
+        const email = this.state.email;
+        const password = this.state.password;
+        // Usamos fetch para las peticiones
+        fetch('localhost:3000/users/login', {
+            method:'POST',
+            headers:{
+                'Accep': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            //Serializamos los datos
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        //Con el then obtenemos la respuesta de la petición    
+        }).then((response)=> response.json())
+        .then((responseJson) => {
+            alert(responseJson);
+            console.log('Positivo ' + responseJson);
+        }).catch((err) => {
+            alert(err(err));
+            console.log('Negativo ' + err);
+        })
+    };
     
     async componentDidMount() {
         await Font.loadAsync({
@@ -48,11 +80,18 @@ class Login extends React.Component {
                 <Content>
                     <Form>
                         <Item>
-                            <Input placeholder="Username" />
+                            <Input 
+                                placeholder="Username" 
+                                onChangeText={email => this.setState.email}/>
                         </Item>
                         <Item last>
-                            <Input placeholder="Password" />
+                            <Input 
+                                placeholder="Password"
+                                onChangeText={password => this.setState.password}/>
                         </Item>
+                        <Button color="purple" onPress = {() => this.login()}>
+                            <Text>Login</Text>
+                        </Button>    
                     </Form>
                 </Content>
                 <Footer>
